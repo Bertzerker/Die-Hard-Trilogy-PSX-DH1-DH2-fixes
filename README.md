@@ -1,7 +1,20 @@
 # Die Hard Trilogy PSX Light Gun and UI fixes
 
 Separate PPF patches for the **Die Hard 2** portion of Die Hard Trilogy on
-PlayStation: setup-specific lightgun aiming corrections and a smaller HUD.
+PlayStation: title-screen lightgun calibration and a smaller HUD.
+
+## Calibration preview
+
+![Die Hard 2 calibration screen showing the white center target and shooting instructions](screenshots/calibration.png)
+
+On the **Die Hard 2 title screen**, press and release the gun's **grenade
+button**, aim at the **center of the white target box**, and shoot once.
+Release the trigger to return to the title screen, then start playing.
+**Start cancels calibration.** The grenade button works normally during gameplay.
+
+The calculated offset lasts for the current session. Calibrate again after a
+fresh boot; the result is not saved to the memory card. A center shot corrects
+an offset, not aiming scale errors near the edges.
 
 ## UI preview
 
@@ -13,16 +26,20 @@ the controller-mode symbol.
 
 ## Downloads
 
-- [Gun Patch Mister.ppf](patches/Gun%20Patch%20Mister.ppf) — X −13, Y +6
-  (left/down); candidate awaiting MiSTer hardware testing.
-- [Gun Patch Emulator.ppf](patches/Gun%20Patch%20Emulator.ppf) — X −13, Y −6
-  (left/up); tested and accepted in DuckStation.
+- [Die Hard 2 Calibration Patch.ppf](patches/Die%20Hard%202%20Calibration%20Patch.ppf)
+  — press the grenade button on the title screen, then shoot the center target
+  to set aiming offsets for your setup. [Instructions](patches/Calibration.md).
 - [Die Hard 2 UI Patch.ppf](patches/Die%20Hard%202%20UI%20Patch.ppf) — corrected
   health badge proportions, smaller rocket/grenade counters at bottom left,
   smaller score centered near the top, and no controller-mode icon.
 
-Use **one** aiming patch, optionally together with the UI patch. The UI patch
-also works alone. Do not combine the two aiming profiles.
+Use calibration and UI together, or either patch on its own. Their application
+order does not matter.
+
+**Upgrading from an older release:** calibration replaces the former
+**Gun Patch Mister** and **Gun Patch Emulator** downloads. Undo your old fixed
+aiming patch first, or start from your original Nuvee GunCon-patched backup.
+The UI patch can remain installed. Do not stack calibration with a fixed offset.
 
 ## Supported base image
 
@@ -50,10 +67,9 @@ can still be used. For CHD use, patch the BIN before rebuilding the CHD.
 
 ## Status
 
-The emulator aiming correction and UI changes were tested live in DuckStation
-and accepted by the tester. The MiSTer offset is based on the latest illustrated
-impact position and **has not yet been hardware-tested**. These are fixed
-offsets for the tested/reported setups, not an in-game calibration menu.
+The calibration and UI changes were tested successfully by the user in
+DuckStation. MiSTer/hardware testing remains outstanding. Calibration opens
+only from the title screen and does not interrupt gameplay.
 
 All PPFs include undo data and regenerated sector EDC/ECC. The builder checks
 application, executable bytes, checksums, undo, and UI/aiming combinations in
@@ -76,7 +92,8 @@ Implementation:
 - `tools/badge_renderer.py`: replacement HUD helper within the existing code
   footprint; the health-strip caller uses a 32 × 19 textured quad.
 - `tools/hud_layout.py`: counter/score size and position edits.
-- `tools/build_patches.py`: aiming profiles, mode-icon suppression, PPF writer,
+- `tools/calibration_mips.py`: title-screen calibration, input capture, and session offsets.
+- `tools/build_patches.py`: calibration/UI packaging, mode-icon suppression, PPF writer,
   application/undo checks, and combination checks.
 - `tools/disc_image.py` and `tools/sector_ecc.py`: raw disc reading and sector
   checksum generation.

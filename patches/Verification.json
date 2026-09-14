@@ -1,60 +1,10 @@
 {
-  "source": "Die Hard Trilogy (USA) (v1.1) (Track 01).bin",
+  "source": "verification-base.bin",
   "source_bytes": 114928128,
   "source_sha256": "1a2f348289285ad95cbaed49ffb535cc0d3792307a9a7d6c66fa6c486cdef3a1",
   "required_baseline": "USA v1.1 SLUS-00119 with existing Nuvee USA Greatest Hits GunCon conversion",
   "source_unchanged": true,
   "patches": [
-    {
-      "file": "Gun Patch Mister.ppf",
-      "sha256": "b592b4f3874467508923706b959d99a6091f3111afdc5c97b271b87e37025ff0",
-      "bytes": 1325,
-      "records": 15,
-      "sectors": [
-        239
-      ],
-      "original_sector_checksums_valid": {
-        "239": true
-      },
-      "edits": [
-        {
-          "ram": "0x80088e94",
-          "original": "0001a520",
-          "patched": "f300a520"
-        },
-        {
-          "ram": "0x80088e9c",
-          "original": "edffe720",
-          "patched": "f3ffe720"
-        }
-      ],
-      "verification": "Parsed generated PPF, applied every record, verified executable edits and EDC/ECC, then undid to exact original sectors."
-    },
-    {
-      "file": "Gun Patch Emulator.ppf",
-      "sha256": "212468033bcfa6f4fb5edc778a09e9abb2eab50818764a8ce404fc1fdaee3ae2",
-      "bytes": 1325,
-      "records": 15,
-      "sectors": [
-        239
-      ],
-      "original_sector_checksums_valid": {
-        "239": true
-      },
-      "edits": [
-        {
-          "ram": "0x80088e94",
-          "original": "0001a520",
-          "patched": "f300a520"
-        },
-        {
-          "ram": "0x80088e9c",
-          "original": "edffe720",
-          "patched": "e7ffe720"
-        }
-      ],
-      "verification": "Parsed generated PPF, applied every record, verified executable edits and EDC/ECC, then undid to exact original sectors."
-    },
     {
       "file": "Die Hard 2 UI Patch.ppf",
       "sha256": "cd369504d8d587df1d6b6b2dc33c4d4843315feffa55fcc3ec63d5abc6f23772",
@@ -177,13 +127,70 @@
         }
       ],
       "verification": "Parsed generated PPF, applied every record, verified executable edits and EDC/ECC, then undid to exact original sectors."
+    },
+    {
+      "file": "Die Hard 2 Calibration Patch.ppf",
+      "sha256": "15e209a7d001d16a3035c4c7f5b1ea929809b341ca18125290969f0a67c31819",
+      "bytes": 4218,
+      "records": 40,
+      "sectors": [
+        119,
+        238,
+        239
+      ],
+      "original_sector_checksums_valid": {
+        "238": true,
+        "239": true,
+        "119": true
+      },
+      "edits": [
+        {
+          "ram": "0x80088bf0",
+          "original": "0a00000077616974202872657365742900000000776169742028777264792048202d3e204c290000776169742028646d616620636c6561722f5729004364526561643a20736563746f72206572726f720a0000004364526561643a205368656c6c206f70656e2e2e2e0a0000",
+          "patched": "0880183ce09318370200659408006784040005af080007af06006584000000000c0005af0a00e010000000001000058f000000002138e500080067a4060067841400058f000000002138e500060067a40000078f020065940200e01000000000ffff0534ab230208ffff0734"
+        },
+        {
+          "ram": "0x80088f20",
+          "original": "444d4120535441545553204552524f522025780a000000002449643a20696e74722e632c7620312e373320313939352f31312f31302030353a32393a34302073757a75204578702024000000756e657870656374656420696e746572727570742825303478290a00696e74722074696d656f757428253034783a25303478290a00000000444d4120627573206572726f723a20636f64653d253038780a0000004d4144525b25645d3d253038780a00005653796e633a2074696d656f75740a002449643a207379732e632c7620312e31323020313939362f30352f30312031323a30393a3037206e6f6461204578702024000000526573657447726170683a6a74623d253038782c656e763d253038780a00000052657365744772617068282564292e2e2e0a0000536574477261706852657665727365282564292e2e2e0a00536574477261706844656275673a6c6576656c3a25642c747970653a256420726576657273653a25640a000053657447726170517565282564292e2e2e0a00004472617753796e6343616c6c6261636b2825303878292e2e2e0a0000536574446973704d61736b282564292e2e2e0a004472617753796e63282564292e2e2e0a0000000025733a6261642052454354002825642c2564292d2825642c2564290a0000000025733a00436c6561",
+          "patched": "c8ffbd273400bfaf3000b0af0880103ce09310360b80083c706b083500000885040009345a000915000000000000088e0400098e000000000400001508002a315600401501000834000008ae00402a31030040150000000003000834000008ae02000a340d000a110000000008602a3108600b341c004b1501000a3404000a1502000834000008ae1700001000000000000000ae410000100000000000202a31110040150000000008000a8e0c000b8e0b004011000000000001083423500a017800083423580b0110000aae14000bae03000834000008ae030000100000000001000834000008ae580208341000a8af0b80083ce06308351400a8af1800a8af000104343c0005340880063c8093c6341ed9010c08070734580208341000a8af0b80083ce06308351400a8af1800a8af00010434b40005340880063c9893c6341ed9010c08070734f40008342000a8a7720008342200a8a70c0108342400a8a77e0008342600a8a72000a427ff000534ff000634f81b010cff0007343400bf8f3000b08f3800bd278f34010800000000000000ae0d000010000000005e0108341000a8af0b80083ce06308351400a8af1800a8af00010434e40005340880063cb893c6341ed9010c4c0407343400bf8f3000b08f3800bd270b80023cc86c42340000428c3034010800000000"
+        },
+        {
+          "ram": "0x80089380",
+          "original": "4d4445435f726573743a626164206f7074696f6e282564290a0000004d4445435f696e5f73796e63000000004d4445435f6f75745f73796e630000000920444d413d2825642c2564292c20414444523d283078253038782d3e30782530387829",
+          "patched": "47554e2043414c4942524154494f4e00000000000000000041494d2041542043454e54455220414e442053484f4f540000000000000000004752454e41444520425554544f4e3a2043414c494252415445000000000000000000000000000000"
+        },
+        {
+          "ram": "0x800893e0",
+          "original": "0a00000009204649464f3d2825642c2564292c425553593d25642c445245513d2825642c2564292c52474232343d25642c5354503d25640a0000000025732074",
+          "patched": "00000000ffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "ram": "0x80088ea4",
+          "original": "02006594ffff0734",
+          "patched": "fc22020800000000"
+        },
+        {
+          "ram": "0x8004d0b8",
+          "original": "0b80023cc86c428c",
+          "patched": "c823020800000000"
+        },
+        {
+          "ram": "0x80088e94",
+          "original": "0001a520",
+          "patched": "0001a520"
+        },
+        {
+          "ram": "0x80088e9c",
+          "original": "edffe720",
+          "patched": "edffe720"
+        }
+      ],
+      "verification": "Parsed generated PPF, applied every record, verified executable edits and EDC/ECC, then undid to exact original sectors."
     }
   ],
   "combinations": [
-    "Gun Patch Mister + UI: both application orders and reverse-order undo verified",
-    "Gun Patch Emulator + UI: both application orders and reverse-order undo verified"
+    "Die Hard 2 Calibration Patch + UI: both application orders and reverse-order undo verified"
   ],
-  "mister_status": "Candidate based on latest user illustration: X -13, Y +6; not hardware-tested",
-  "emulator_status": "X -13, Y -6; user-tested in DuckStation",
+  "calibration_status": "User-tested in DuckStation; grenade button at title screen opens center-shot calibration. Session-only offsets; not yet hardware-tested.",
   "format_source": "https://github.com/Sappharad/MultiPatch/blob/master/ppfdev/makeppf3_linux.c"
 }

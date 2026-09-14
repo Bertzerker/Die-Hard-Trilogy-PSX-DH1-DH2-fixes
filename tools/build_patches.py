@@ -12,6 +12,7 @@ ROOT=Path(__file__).resolve().parent.parent
 from sector_ecc import repair,sha
 from badge_renderer import build as badge_code,BASE,END
 from hud_layout import VALUES
+from calibration_mips import build as calibration_code
 
 OUT=ROOT/'build'
 
@@ -72,9 +73,8 @@ def main():
             assert old(addr,4)==struct.pack('<I',0x0C011B0C)
             ui.append((addr,bytes(4)))
         plans={
-            'Gun Patch Mister':[(0x80088E94,bytes.fromhex('f300a520')),(0x80088E9C,bytes.fromhex('f3ffe720'))],
-            'Gun Patch Emulator':[(0x80088E94,bytes.fromhex('f300a520')),(0x80088E9C,bytes.fromhex('e7ffe720'))],
             'Die Hard 2 UI Patch':ui,
+            'Die Hard 2 Calibration Patch':list(calibration_code().items()),
         }
         disc.f.seek(0x9320);check=disc.f.read(1024)
         all_original={};outputs={};report=[]
@@ -109,7 +109,7 @@ def main():
                 'edits':[{'ram':hex(addr),'original':old(addr,len(new)).hex(),'patched':new.hex()} for addr,new in edits],
                 'verification':'Parsed generated PPF, applied every record, verified executable edits and EDC/ECC, then undid to exact original sectors.'})
         combinations=[]
-        for gun in ('Gun Patch Mister','Gun Patch Emulator'):
+        for gun in ('Die Hard 2 Calibration Patch',):
             gs,gr=outputs[gun];us,ur=outputs['Die Hard 2 UI Patch']
             assert not(set(gs)&set(us)), 'Independent patches must not share checksum sectors'
             for order in ((gr,ur),(ur,gr)):
@@ -124,8 +124,7 @@ def main():
     manifest={'source':source.name,'source_bytes':source.stat().st_size,'source_sha256':source_hash,
         'required_baseline':'USA v1.1 SLUS-00119 with existing Nuvee USA Greatest Hits GunCon conversion',
         'source_unchanged':True,'patches':report,'combinations':combinations,
-        'mister_status':'Candidate based on latest user illustration: X -13, Y +6; not hardware-tested',
-        'emulator_status':'X -13, Y -6; user-tested in DuckStation',
+        'calibration_status':'User-tested in DuckStation; grenade button at title screen opens center-shot calibration. Session-only offsets; not yet hardware-tested.',
         'format_source':'https://github.com/Sappharad/MultiPatch/blob/master/ppfdev/makeppf3_linux.c'}
     (OUT/'Verification.json').write_text(json.dumps(manifest,indent=2))
     print(json.dumps({k:manifest[k] for k in ('source_sha256','source_unchanged','combinations')},indent=2))
