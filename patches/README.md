@@ -1,4 +1,11 @@
-# Die Hard 2 patches
+# Die Hard 1 and Die Hard 2 patches
+
+- [Die Hard 1 Dual Shock.ppf](Die%20Hard%201%20Dual%20Shock.ppf): selectable
+  dual-stick controls and analog support in the launcher and Die Hard 1 menus.
+  Follow its [separate instructions and base-image requirements](Die%20Hard%201%20Dual%20Shock.md).
+  **Press the Analog button on your joypad: analog mode does not activate automatically.**
+
+The application and upgrading instructions below apply to the Die Hard 2 patches.
 
 - [Die Hard 2 Calibration Patch.ppf](Die%20Hard%202%20Calibration%20Patch.ppf):
   grenade-button entry on the title screen and center-shot aiming calibration.

@@ -1,7 +1,33 @@
-# Die Hard Trilogy PSX Light Gun and UI fixes
+# Die Hard Trilogy PSX DH1 and DH2 fixes
 
-Separate PPF patches for the **Die Hard 2** portion of Die Hard Trilogy on
-PlayStation: title-screen lightgun calibration and a smaller HUD.
+PPF patches for Die Hard Trilogy on PlayStation: **Die Hard 1 Dual Shock
+controls**, plus **Die Hard 2** title-screen lightgun calibration and a smaller HUD.
+
+## Die Hard 1 Dual Shock controls
+
+In the trilogy launcher's Controllers menu, select Die Hard 1 and cycle past
+layouts A, B and C to **Dual Shock**, then start Die Hard 1. The original layouts
+remain available, and analog input works in the launcher and Die Hard 1 menus.
+
+**Analog mode does not activate automatically. You must press the Analog button
+on your joypad to enable it.** In an emulator, use an Analog Controller and enable
+its analog mode.
+
+| Input | Action |
+| --- | --- |
+| Left stick / D-pad | Move forward/backward and strafe left/right |
+| Right stick left/right | Turn |
+| L1 | Throw grenade |
+| R1 | Shoot |
+| L2 | Change grenade |
+| R2 | Jump |
+| Square | Roll left |
+| Cross (X) | Roll right |
+| Triangle / Select | Zoom map |
+| Circle | Unassigned |
+| Start | Pause |
+
+[Patch instructions and tested base image](patches/Die%20Hard%201%20Dual%20Shock.md).
 
 ## Calibration preview
 
@@ -26,6 +52,8 @@ the controller-mode symbol.
 
 ## Downloads
 
+- [Die Hard 1 Dual Shock.ppf](patches/Die%20Hard%201%20Dual%20Shock.ppf)
+  — selectable dual-stick controls and analog support in both menus.
 - [Die Hard 2 Calibration Patch.ppf](patches/Die%20Hard%202%20Calibration%20Patch.ppf)
   — press the grenade button on the title screen, then shoot the center target
   to set aiming offsets for your setup. [Instructions](patches/Calibration.md).
@@ -41,7 +69,7 @@ order does not matter.
 aiming patch first, or start from your original Nuvee GunCon-patched backup.
 The UI patch can remain installed. Do not stack calibration with a fixed offset.
 
-## Supported base image
+## Supported base image for Die Hard 2 patches
 
 **Die Hard Trilogy (USA) (v1.1), SLUS-00119**, with the existing
 **Nuvee USA Greatest Hits GunCon conversion already applied**.
@@ -67,6 +95,11 @@ can still be used. For CHD use, patch the BIN before rebuilding the CHD.
 
 ## Status
 
+The user tested the Die Hard 1 controls and menu/loading behavior successfully
+in DuckStation. Its PPF application/undo and sector checks passed, along with
+4,862 simulated MIPS cases. Physical hardware and saving the layout selection
+to a memory card remain untested.
+
 The calibration and UI changes were tested successfully by the user in
 DuckStation. MiSTer/hardware testing remains outstanding. Calibration opens
 only from the title screen and does not interrupt gameplay.
@@ -75,7 +108,7 @@ All PPFs include undo data and regenerated sector EDC/ECC. The builder checks
 application, executable bytes, checksums, undo, and UI/aiming combinations in
 both orders. [Verification manifest](patches/Verification.json).
 
-## Rebuilding
+## Rebuilding the Die Hard 2 patches
 
 Python 3.11 or newer, standard library only:
 
