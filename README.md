@@ -30,9 +30,9 @@ its analog mode.
 [Patch instructions and tested base image](patches/Die%20Hard%201%20Dual%20Shock.md).
 
 ## Calibration preview
-
-![Die Hard 2 calibration screen showing the white center target and shooting instructions](screenshots/calibration.png)
-
+<p align="center">
+  <img width="420" src="screenshots/calibration.png">
+</p>
 
 On the **Die Hard 2 title screen**, press and release the gun's **grenade
 button**, aim at the **center of the white target box**, and shoot once.
@@ -44,8 +44,6 @@ fresh boot; the result is not saved to the memory card. A center shot corrects
 an offset, not aiming scale errors near the edges.
 
 ## UI preview
-
-
 <p align="center">
   <img width="420" src="screenshots/die-hard-2-ui.png">
 </p>
