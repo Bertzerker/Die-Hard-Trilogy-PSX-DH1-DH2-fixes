@@ -33,6 +33,7 @@ its analog mode.
 
 ![Die Hard 2 calibration screen showing the white center target and shooting instructions](screenshots/calibration.png)
 
+
 On the **Die Hard 2 title screen**, press and release the gun's **grenade
 button**, aim at the **center of the white target box**, and shoot once.
 Release the trigger to return to the title screen, then start playing.
@@ -44,7 +45,10 @@ an offset, not aiming scale errors near the edges.
 
 ## UI preview
 
-![Die Hard 2 with the UI patch: smaller centered score, rocket and grenade counters at bottom left, and corrected health badges](screenshots/die-hard-2-ui.png)
+
+<p align="center">
+  <img width="420" src="screenshots/die-hard-2-ui.png">
+</p>
 
 The UI patch makes the score and counters smaller, moves the rocket/grenade
 counters to the bottom left, corrects the health badge proportions, and removes
