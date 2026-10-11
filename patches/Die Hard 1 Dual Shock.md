@@ -17,6 +17,16 @@ speeds with a central stick dead zone; right-stick vertical movement is unused.
 Original A/B/C layouts remain available. Die Hard 2 and 3 retain their three
 layout choices.
 
+## Corrected controls menu
+
+<img src="../screenshots/die-hard-1-dual-shock.png" alt="Die Hard 1 Dual Shock controls with corrected labels below the logo" width="420">
+
+Button descriptions use **TO** because the original menu font does not support
+normal punctuation. The text sits below the game logo without overlapping it.
+
+To upgrade, undo the previous DH1 Dual Shock patch or restore the supported
+base image before applying this replacement PPF.
+
 ## Tested image
 
 The released patch was built and tested against the local USA v1.1 image,
@@ -32,13 +42,13 @@ image revisions and patch combinations have not been verified for this release.
 Patched Track 01 SHA-256:
 
 ```text
-446a02f5d900b6f4140b37be27d0900b8f4255a8bea9415b6b727736eb796867
+6343115d581ab3614b1907ac66086fa989df93a6fd2940803acbf5df4cace09f
 ```
 
 PPF SHA-256:
 
 ```text
-18fc1a68627ce0189c56b966dcaf24688cbd0d9f0de8e5beba3d0b59c713e187
+6223bc57dac22a096a04b40c5b51881a35660324b5d9b75e6897e040124ada4d
 ```
 
 The PPF includes undo data. Use your patcher's undo function or restore the
