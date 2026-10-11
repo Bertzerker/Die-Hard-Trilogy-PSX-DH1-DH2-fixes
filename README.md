@@ -29,9 +29,9 @@ its analog mode.
 
 [Patch instructions and tested base image](patches/Die%20Hard%201%20Dual%20Shock.md).
 
+<p align="center">
 <img src="screenshots/die-hard-1-dual-shock.png" alt="Die Hard 1 Dual Shock controls menu with corrected text" width="420">
-
-Corrected button labels use **TO** and sit below the game logo.
+</p>
 
 ## Calibration preview
 <p align="center">
